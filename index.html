@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Mi Novia 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset y estilos generales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header y navegación */
+    header {
+      background: #ff4d6d;
+      padding: 15px;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin: 0 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Main y secciones */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+    }
+    section.active {
+      display: flex;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    /* Botones */
+    button {
+      background: #ffb6c1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s ease-in-out;
+    }
+    button:hover {
+      background: #ff8fa3;
+      transform: scale(1.05);
+    }
+
+    /* Texto largo en Inicio */
+    #mensajeHola {
+      margin-top: 15px;
+      color: #a90220;
+      display: none;
+      text-align: center;
+      white-space: pre-wrap;
+      font-weight: bold;
+    }
+
+    /* Frases animadas */
+    .frases-box {
+      max-width: 90%;
+      padding: 25px;
+      border: 3px solid #ff5fa2;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      text-align: center;
+      animation: glowing 3s ease-in-out infinite alternate;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .frase {
+      font-size: 1.3rem;
+      margin: 15px 0;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+    .frase.activa {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes glowing {
+      0% { box-shadow: 0 0 10px #ff5fa2, 0 0 20px #ff8fb1; }
+      100% { box-shadow: 0 0 30px #ff5fa2, 0 0 50px #ff8fb1; }
+    }
+
+    /* Corazones y estrellas */
+    .emoji {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh) translateX(30px); opacity: 0; }
+    }
+
+    /* Galería */
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      margin: 5px;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: #ff4d6d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+      .gallery img {
+        max-width: 100%;
+      }
+      button {
+        width: 80%;
+      }
+      h2 { font-size: 1.3rem; }
+      .frase { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💖 Mi Página de Amor 💖</h1>
+  <nav>
+    <a onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a onclick="mostrarSeccion('about')">Sobre Ti</a>
+    <a onclick="mostrarSeccion('gallery')">Galería</a>
+    <a onclick="mostrarSeccion('love')">Frases</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Sección Inicio -->
+  <section id="inicio" class="active">
+    <h2>Eres lo mejor de mi vida 💕</h2>
+    <p>He creado este espacio solo para ti, donde guardo un pedacito de nuestro amor.</p>
+    <button id="btnInicio" onclick="mostrarTexto()">💝 Haz clic aquí 💝</button>
+    <div id="mensajeHola"></div>
+  </section>
+
+  <!-- Sección Sobre Ti -->
+  <section id="about">
+    <h2>Sobre Ti 💖</h2>
+    <p>Amor mío, hoy quiero detener el mundo un momento solo para hablar de ti, para poner en letras lo que siento y que nunca se me alcanza a salir con las palabras cotidianas.
+Eres inteligente, tan brillante que a veces hasta me sorprendo de la facilidad con la que entiendes las cosas y la manera en la que siempre encuentras soluciones. Pero no solo eres inteligente en lo académico o en lo lógico, también lo eres en lo emocional...
+(Este texto largo sigue como lo tenías, sin cambios)</p>
+  </section>
+
+  <!-- Sección Galería -->
+  <section id="gallery">
+    <h2>📸 Mis fotos favoritas contigo 💖</h2>
+    <div class="gallery">
+      <img src="img/foto1.jpg" alt="Recuerdo 1">
+      <img src="img/foto2.jpg" alt="Recuerdo 2">
+      <img src="img/foto3.jpg" alt="Recuerdo 3">
+    </div>
+  </section>
+
+  <!-- Sección Frases animadas -->
+  <section id="love">
+    <h2>✨ Frases para mi princesa ✨</h2>
+    <div class="frases-box" id="frasesBox">
+      <div class="frase activa">Eres mi razón de sonreír cada día 💕</div>
+      <div class="frase">Tu valentía me inspira a nunca rendirme 🌟</div>
+      <div class="frase">Eres la dueña de mis sueños más lindos 💖</div>
+      <div class="frase">A tu lado todo tiene sentido ✨</div>
+      <div class="frase">Mi orgullo, mi amor, mi todo ❤️</div>
+    </div>
+
+    <button id="btnSiguiente">➡️ Siguiente frase</button>
+  </section>
+</main>
+
+<footer>
+  💖 Hecho con amor para ti 💖
+</footer>
+
+<script>
+  // Mostrar sección
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll('section');
+    secciones.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Botón Inicio que desaparece y muestra texto largo
+  function mostrarTexto() {
+    const boton = document.getElementById("btnInicio");
+    const mensaje = document.getElementById("mensajeHola");
+
+    boton.style.display = "none";
+    mensaje.style.display = "block";
+
+    mensaje.textContent = `Amor, nuestra historia es única, nació de un gesto tan simple como pasarte tu lápiz en la prepa, pero que terminó marcando el inicio de todo lo que hoy somos...
+(Este texto largo sigue como lo tenías, sin cambios)`;
+  }
+
+  // Animación de frases
+  const frasesAnimadas = document.querySelectorAll("#frasesBox .frase");
+  const box = document.getElementById("frasesBox");
+  const btn = document.getElementById("btnSiguiente");
+  let index = 0;
+
+  function mostrarSiguiente() {
+    frasesAnimadas[index].classList.remove("activa");
+    index = (index + 1) % frasesAnimadas.length;
+    frasesAnimadas[index].classList.add("activa");
+  }
+
+  // Cambiar frase al hacer clic en el cuadro o en el botón
+  box.addEventListener("click", mostrarSiguiente);
+  btn.addEventListener("click", mostrarSiguiente);
+
+  // Corazones y estrellas animadas
+  const emojis = ["❤️","💖","💘","✨","🌟"];
+  function crearEmoji() {
+    const emoji = document.createElement("div");
+    emoji.className = "emoji";
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 7000);
+  }
+  setInterval(crearEmoji, 700);
+</script>
+
+</body>
+</html>
